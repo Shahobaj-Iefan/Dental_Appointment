@@ -4,7 +4,7 @@ This is Project Link [Visit the site](https://github.com/facebook/create-react-a
 
 ## Available Scripts
 
-##In the project :
+### In the project :
 
 - You can give appointment where ever your are
 - Its very user friendly
