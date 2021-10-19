@@ -1,0 +1,14 @@
+.text-section li {
+  font-size: 20px;
+  list-style: none;
+  text-align: justify;
+}
+.text-section p {
+  text-align: justify;
+  font-size: 20px;
+}
+
+.img-container {
+  width: 100px;
+  height: auto;
+}
