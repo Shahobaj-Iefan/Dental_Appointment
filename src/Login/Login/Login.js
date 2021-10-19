@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useAuth from "../../hooks/useAuth";
+import { useHistory, useLocation } from "react-router";
 
 const Login = () => {
   const {
@@ -15,9 +16,15 @@ const Login = () => {
     setPassword,
     isLogin,
     setIsLogin,
-    error,
-    setError,
   } = useAuth();
+  const location = useLocation();
+  const history = useHistory();
+  const ridirect_uri = location.state?.from || "/home";
+  const handleGoogleSignin = () => {
+    signInUsingGoogle().then(result => {
+      history.push(ridirect_uri);
+    });
+  };
 
   // Toggle Register To LogIn
   const toggleLogIn = e => {
@@ -76,7 +83,7 @@ const Login = () => {
       </div>
       {/* another sign in method */}
       <div className='mt-4 mb-4'>
-        <button onClick={signInUsingGoogle} className='btn btn-primary m-4'>
+        <button onClick={handleGoogleSignin} className='btn btn-primary m-4'>
           <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon> Sign in with
           google
         </button>
